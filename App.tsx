@@ -1,19 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  createBottomTabNavigator,
+  createAppContainer,
+} from 'react-navigation'
+import { DeckSection, SettingsSection, ExploreSection} from './sections/Stacks'
 
-export default function AppXML() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default createAppContainer(createBottomTabNavigator(
+  {
+    "My Decks": DeckSection,
+    Explore: ExploreSection,
+    Settings: SettingsSection
+  }
+));
