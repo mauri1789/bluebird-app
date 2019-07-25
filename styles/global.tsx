@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
+import { mainAppColor } from './colors'
 
 export const EmptySectionStyle = StyleSheet.create({
     container: {
@@ -7,4 +8,14 @@ export const EmptySectionStyle = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-  });
+});
+
+export const HeaderStyle = {
+    headerStyle: {
+        backgroundColor: mainAppColor
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+        fontWeight: "bold"
+    }
+}

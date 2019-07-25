@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 import {
   createBottomTabNavigator,
   createAppContainer,
 } from 'react-navigation'
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { DeckSection, SettingsSection, ExploreSection} from './sections/Stacks'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import { DeckSection, SettingsSection, ExploreSection } from './sections/Stacks'
+import { mainAppColor, inactiveColor } from './styles/colors'
 
-const myIcon = <Icon name="rocket" size={30} color="#900" />;
 
 export default createAppContainer(createBottomTabNavigator(
   {
@@ -34,8 +34,8 @@ export default createAppContainer(createBottomTabNavigator(
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'teal',
-      inactiveTintColor: 'gray',
+      activeTintColor: mainAppColor,
+      inactiveTintColor: inactiveColor,
     },
   }
 ));
