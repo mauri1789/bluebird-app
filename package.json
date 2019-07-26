@@ -14,12 +14,15 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-vector-icons": "^6.6.0",
     "react-native-web": "^0.11.4",
-    "react-navigation": "^3.11.1"
+    "react-navigation": "^3.11.1",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4"
   },
   "devDependencies": {
     "@types/react": "^16.8.19",
     "@types/react-native": "^0.57.60",
     "babel-preset-expo": "^5.1.1",
+    "redux-devtools": "^3.5.0",
     "typescript": "^3.4.5"
   },
   "private": true

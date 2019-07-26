@@ -2,13 +2,16 @@ import React from 'react'
 import {
   createBottomTabNavigator,
   createAppContainer,
+  NavigationContainer as NavContainer
 } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { DeckSection, SettingsSection, ExploreSection } from './sections/Stacks'
 import { mainAppColor, inactiveColor } from './styles/colors'
+import { Provider } from 'react-redux'
+import store from './reducers/store'
 
-
-export default createAppContainer(createBottomTabNavigator(
+const AppNavigator: NavContainer = createAppContainer(
+  createBottomTabNavigator(
   {
     "My Decks": DeckSection,
     Explore: ExploreSection,
@@ -39,3 +42,13 @@ export default createAppContainer(createBottomTabNavigator(
     },
   }
 ));
+
+function App () {
+  return (
+    <Provider store={store}>
+      <AppNavigator />
+    </Provider>
+  )
+}
+
+export default App

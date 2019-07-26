@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Button } from 'react-native';
 import { EmptySectionStyle } from '../../styles/global'
 import {
     NavigationScreenProps as NavProps,
@@ -8,10 +8,14 @@ import {
 import { HeaderStyle } from '../../styles/global'
 
 const Settings: NavComponent<NavProps> =
-() =>
-    <View style={EmptySectionStyle.container}>
-        <Text>Settings!</Text>
-    </View>
+    (props) =>
+        <View style={EmptySectionStyle.container}>
+            <Text>Settings!</Text>
+            <Button
+                title="Go to Settings"
+                onPress={() => props.navigation.navigate('Details')}
+            />
+        </View>
 
 Settings.navigationOptions = () => ({
     title: "Settings",
