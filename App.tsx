@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   createAppContainer,
   NavigationContainer as NavContainer
 } from 'react-navigation'
-import { Provider } from 'react-redux'
-import store from './reducers/store'
+import { CollectionsContext } from './context'
 import { bottomNavigation } from './navigation'
 
 const AppNavigator: NavContainer = createAppContainer(bottomNavigation);
 
 function App () {
+  const collectionsHook = useState(null)
   return (
-    <Provider store={store}>
+    <CollectionsContext.Provider value={collectionsHook}>
       <AppNavigator />
-    </Provider>
+    </CollectionsContext.Provider>
   )
 }
 
