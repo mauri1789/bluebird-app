@@ -9,7 +9,7 @@ import { bottomNavigation } from './navigation'
 const AppNavigator: NavContainer = createAppContainer(bottomNavigation);
 
 function App () {
-  const collectionsHook = useState(null)
+  const collectionsHook = useState([])
   return (
     <CollectionsContext.Provider value={collectionsHook}>
       <AppNavigator />

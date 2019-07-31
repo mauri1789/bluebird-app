@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
-import { Text, View, Button } from 'react-native';
-import { EmptySectionStyle } from '../../styles/global'
+import { Text, View, Button, ScrollView } from 'react-native';
+import { viewStyle } from '../../styles/global'
 import {
     NavigationScreenProps as NavProps,
     NavigationScreenComponent as NavComponent
@@ -8,6 +8,7 @@ import {
 import { HeaderStyle } from '../../styles/global'
 import { CollectionsContext } from './../../context'
 import { getCollections } from '../../services/collectionService'
+import { DeckOverview } from '../../components/DeckOverview'
 
 const Decks: NavComponent<NavProps> =
     (props) => {
@@ -16,14 +17,16 @@ const Decks: NavComponent<NavProps> =
             getCollections()
                 .subscribe((collections) => setCollections(collections))
             
-        }, [])   
-        return (<View style={EmptySectionStyle.container}>
-            <Text>Home! {String(collections)}</Text>
-            <Button
-                title="Go to Settings"
-                onPress={() => props.navigation.navigate('Details')}
-            />
-        </View>)
+        }, [])
+        return (
+        <ScrollView 
+            style={viewStyle.main}>
+            {
+                collections.map(
+                    (col) => <DeckOverview key={col.collectionId} collection={col} />
+                )
+            }
+        </ScrollView>)
     };
 Decks.navigationOptions = {
     title: 'My Decks',

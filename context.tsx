@@ -1,5 +1,5 @@
 import { createContext } from 'react'
 
-const CollectionsContext = createContext(null)
+const CollectionsContext = createContext([])
 
 export { CollectionsContext }

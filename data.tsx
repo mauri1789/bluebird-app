@@ -10,8 +10,7 @@ const user = {
         "rhetoric"
     ]
 }
-const collections = {
-    "collections": [
+const collections = [
        {
           "collectionId": "global_science_deck",
           "name": "Science Deck",
@@ -107,6 +106,5 @@ const collections = {
           ]
        }
     ]
- }
 
  export { user, collections}
