@@ -1,8 +1,17 @@
 import { collections } from '../data'
-import { of } from 'rxjs'
+import { of, from } from 'rxjs'
+import { AsyncStorage } from 'react-native'
 
 function getCollections() {
-    return of ( collections)
+    return  collections
 }
 
-export { getCollections }
+function loadFromStorage (key) {
+    return from(AsyncStorage.getItem(key))
+}
+
+function saveInStorage (key, data) {
+    return from(AsyncStorage.setItem(key,data))
+}
+
+export { getCollections, loadFromStorage, saveInStorage }
