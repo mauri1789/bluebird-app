@@ -12,6 +12,7 @@ export const EmptySectionStyle = StyleSheet.create({
 export const viewStyle = StyleSheet.create({
     main: {
         flex: 1,
+        flexGrow: 1,
         backgroundColor: 'rgb(240,240,240)'
     },
     singleElement: {
@@ -32,3 +33,23 @@ export const HeaderStyle = {
         fontWeight: "bold"
     }
 }
+
+export const FloatingButton = StyleSheet.create({
+    Container: {
+        position: "absolute",
+        bottom: 12,
+        left: 0,
+        right: 0,
+        height: 50
+    },
+    Button: {
+        width: 120,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        alignSelf: 'center',
+        borderRadius: 50,
+        backgroundColor: 'rgba(51, 102, 153, 0.6)'
+
+    }
+})
