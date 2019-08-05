@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View, Button } from 'react-native';
+import React from 'react'
+import { Text, View, Button } from 'react-native'
 import { EmptySectionStyle } from '../../styles/global'
 import {
     NavigationScreenProps as NavProps,

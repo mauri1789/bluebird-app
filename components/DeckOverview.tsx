@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Button, ScrollView } from 'react-native';
+import { Text, View, Button, ScrollView } from 'react-native'
 import { viewStyle } from '../styles/global'
 import { Collection } from '../dataModels'
 

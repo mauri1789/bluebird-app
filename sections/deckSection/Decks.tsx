@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { Text, View, Button, ScrollView } from 'react-native';
+import React, { useContext, useState } from 'react'
+import { Text, View, Button, ScrollView, TouchableHighlight } from 'react-native'
 import { viewStyle, HeaderStyle, FloatingButton } from '../../styles/global'
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome'
 import {
     NavigationScreenProps as NavProps,
     NavigationScreenComponent as NavComponent
@@ -47,16 +47,18 @@ const Decks: NavComponent<NavProps> =
                     }
                 </ScrollView>
                 <View style={FloatingButton.Container}>
-                    <View style={FloatingButton.Button}>
+                    <TouchableHighlight
+                        style={FloatingButton.Button}
+                        onPress={() => props.navigation.navigate('AddDeck')}
+                    >
                         <Icon name="plus" size={35} color="whitesmoke" />
-                    </View>
+                    </TouchableHighlight>
                 </View>
             </View>
         )
     };
 Decks.navigationOptions = {
-    title: 'My Decks',
-    ...HeaderStyle
+    title: 'My Decks'
 }
 
 export { Decks }
