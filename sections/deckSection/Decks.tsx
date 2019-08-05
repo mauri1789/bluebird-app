@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Text, View, Button, ScrollView } from 'react-native';
 import { viewStyle } from '../../styles/global'
 import {
@@ -9,33 +9,33 @@ import { HeaderStyle } from '../../styles/global'
 import { CollectionsContext } from './../../context'
 import { getCollections, loadFromStorage, saveInStorage } from '../../services/collectionService'
 import { DeckOverview } from '../../components/DeckOverview'
+import { useEffectAsync } from '../../lib'
 
 const Decks: NavComponent<NavProps> =
     (props) => {
         const [collections, setCollections] = useContext(CollectionsContext)
-        const [firstLoad, setFirstLoad] = useState( )
-        useEffect(() => {
+        const [firstLoad, setFirstLoad] = useState(false)
+        useEffectAsync(async () => {
             if ( collections.length != 0) {
                 if ( !firstLoad ) {
-                    saveInStorage(
+                    await saveInStorage(
                         "collection",
                         JSON.stringify(collections)
-                    ).subscribe()
+                    )
                 } else {
                     setFirstLoad(false)
                 }
             }
         }, [collections])
-        useEffect(() => {
-            loadFromStorage('collections')
-                .subscribe((col) => {
-                    if (col == null) {
-                        setCollections(getCollections())
-                    } else {
-                        setFirstLoad(true)
-                        setCollections(col)
-                    }
-                })
+        useEffectAsync(async () => {
+            const col = await loadFromStorage('collections')
+            if (col == null) {
+                setCollections(getCollections())
+            } else {
+
+                setFirstLoad(true)
+                setCollections(col)
+            }
         }, [])
         return (
         <ScrollView 
