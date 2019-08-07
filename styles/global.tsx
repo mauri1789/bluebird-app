@@ -53,3 +53,65 @@ export const FloatingButton = StyleSheet.create({
 
     }
 })
+
+const Button = StyleSheet.create ({
+    Default: { 
+        flex:1,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center"
+    }
+})
+
+export const LowerButton = StyleSheet.create({
+    Container: {
+        left: 0,
+        right: 0,
+        flexDirection: "row"
+    },
+    CancelButton: {
+        backgroundColor: 'rgba(153, 0, 0, 0.6)',
+        ...Button.Default
+    },
+    ActionButton: {
+        backgroundColor: 'rgba(51, 102, 153, 0.6)',
+        ...Button.Default
+    },
+    ButtonText: {
+        color: 'white',
+        fontWeight: '500',
+        fontSize: 15
+    },
+    DisabledButton: {
+        backgroundColor: 'rgba(153, 153, 153, 0.6)',
+        ...Button.Default
+    }
+})
+
+let bottomLine = () => ({
+    borderBottomColor: "gray",
+    borderBottomWidth: 1,
+    paddingHorizontal: 5
+})
+
+export const Inputs = StyleSheet.create ({
+    Multiline: {
+        width: "85%",
+        height: 120,
+        textAlignVertical: "bottom",
+        paddingBottom: 5,
+        fontSize: 17,
+        ...bottomLine()
+    },
+    SingleLine: {
+        width: "85%",
+        height: 40,
+        ...bottomLine()
+    },
+    Title: {
+        width: "60%",
+        textAlign: "center",
+        fontWeight: "bold",
+        fontSize: 20
+    }
+})

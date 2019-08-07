@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Text, View, Button, ScrollView, TouchableHighlight } from 'react-native'
-import { viewStyle, HeaderStyle, FloatingButton } from '../../styles/global'
+import { viewStyle, FloatingButton } from '../../styles/global'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import {
     NavigationScreenProps as NavProps,
