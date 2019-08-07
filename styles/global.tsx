@@ -70,11 +70,11 @@ export const LowerButton = StyleSheet.create({
         flexDirection: "row"
     },
     CancelButton: {
-        backgroundColor: 'rgba(153, 0, 0, 0.6)',
+        backgroundColor: 'rgb(153, 0, 0)',
         ...Button.Default
     },
     ActionButton: {
-        backgroundColor: 'rgba(51, 102, 153, 0.6)',
+        backgroundColor: 'rgb(51, 102, 153)',
         ...Button.Default
     },
     ButtonText: {
@@ -83,7 +83,7 @@ export const LowerButton = StyleSheet.create({
         fontSize: 15
     },
     DisabledButton: {
-        backgroundColor: 'rgba(153, 153, 153, 0.6)',
+        backgroundColor: 'rgb(153, 153, 153)',
         ...Button.Default
     }
 })

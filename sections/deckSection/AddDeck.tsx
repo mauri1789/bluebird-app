@@ -7,18 +7,20 @@ import {
 } from 'react-navigation'
 import { CollectionsContext } from './../../context'
 import { buildCollection } from './../../services/collectionService'
-import { useEffectAsync } from '../../lib'
 
 const AddDeck: NavComponent<NavProps> = (props) => {
     const [deckName, setDeckName] = useState("")
-    const [deckDescription, setDeckDescription] = useState("")
     const [collections, setCollections] = useContext(CollectionsContext)
+    let emptyDeckName = deckName.length == 0
+    let buttonText = (text) => (<Text style={LowerButton.ButtonText}>{text}</Text>)
+    let CreateButtonProps = setCreateButtonProps()
+
     return (
         <KeyboardAvoidingView
-            style = {{ flex:1}}
+            style = {{ flex:1 }}
             enabled
-            behavior='padding'>
-            <View style={{alignItems: "center", paddingVertical: 25}}>
+            behavior={'padding'}>
+            <View style={{alignItems: "center", paddingVertical: 50}}>
                 <TextInput
                     style={[Inputs.SingleLine, Inputs.Title]}
                     onChangeText={(text) => setDeckName(text)}
@@ -26,37 +28,38 @@ const AddDeck: NavComponent<NavProps> = (props) => {
                     maxLength={20}
                     placeholder={"Deck Name"}
                 />
-                <TextInput
-                    style={[Inputs.Multiline]}
-                    onChangeText={(text) => setDeckDescription(text)}
-                    value={deckDescription}
-                    multiline={true}
-                    placeholder={"Deck Description"}
-                />
             </View>
             <View style={[LowerButton.Container]}>
                 <TouchableHighlight 
                     style={LowerButton.CancelButton}
                     onPress={() => props.navigation.goBack()}
                 >
-                    <Text style={LowerButton.ButtonText}>Cancel</Text>
+                    {buttonText("Cancel")}
                 </TouchableHighlight>
-                <TouchableHighlight
-                    style={
-                        deckName.length == 0? LowerButton.DisabledButton:LowerButton.ActionButton
-                    }
-                    onPress={() => {
-                        if (deckName.length > 0) {
-                            setCollections([...collections, buildCollection({deckName})])
-                            props.navigation.goBack()
-                        }
-                    }}
-                >
-                    <Text style={LowerButton.ButtonText}>Create</Text>
+                <TouchableHighlight {...CreateButtonProps} >
+                    {buttonText("Create")}
                 </TouchableHighlight>
             </View>
         </KeyboardAvoidingView>
     )
+    function setCreateButtonProps () {
+        let CreateButtonProps
+        if ( emptyDeckName ) {
+            CreateButtonProps = {
+                style: LowerButton.DisabledButton,
+                underlayColor: LowerButton.DisabledButton.backgroundColor
+            }
+        } else {
+            CreateButtonProps = {
+                style:LowerButton.ActionButton,
+                onPress:() => {
+                    setCollections([...collections, buildCollection({deckName})])
+                    props.navigation.goBack()
+                }
+            }
+        }
+        return CreateButtonProps
+    }
 }
 AddDeck.navigationOptions = {
     title: 'New Deck'
