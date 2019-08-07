@@ -63,7 +63,7 @@ const Button = StyleSheet.create ({
     }
 })
 
-export const LowerButton = StyleSheet.create({
+export const Ribbon = StyleSheet.create({
     Container: {
         left: 0,
         right: 0,
