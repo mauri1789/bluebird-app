@@ -9,20 +9,6 @@ export const EmptySectionStyle = StyleSheet.create({
       justifyContent: 'center',
     },
 });
-export const viewStyle = StyleSheet.create({
-    main: {
-        flex: 1,
-        flexGrow: 1,
-        backgroundColor: 'rgb(240,240,240)'
-    },
-    singleElement: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        height: 50,
-        backgroundColor: 'white',
-        marginVertical: 3
-    }
-})
 
 export const HeaderStyle = {
     headerStyle: {

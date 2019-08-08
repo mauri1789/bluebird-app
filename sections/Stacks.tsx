@@ -5,10 +5,12 @@ import { Explore } from './exploreSection/Explore'
 import { Settings } from './settingsSection/Settings'
 import { Details } from '../shared/Details'
 import { HeaderStyle } from './../styles/global'
+import { CollectionDetail } from './shared/CollectionDetail'
 
 export const DeckSection = createStackNavigator({
     DeckScreen: Decks,
-    AddDeck: AddDeck
+    AddDeck: AddDeck,
+    CollectionDetail: CollectionDetail
 },{
     defaultNavigationOptions: {
         title: 'My Decks',

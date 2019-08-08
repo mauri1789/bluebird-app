@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Text, View, Button, ScrollView, TouchableHighlight } from 'react-native'
-import { viewStyle, FloatingButton } from '../../styles/global'
+import { FloatingButton } from '../../styles/global'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import {
     NavigationScreenProps as NavProps,
@@ -10,6 +10,7 @@ import { CollectionsContext } from './../../context'
 import { getCollections, loadFromStorage, saveInStorage } from '../../services/collectionService'
 import { DeckOverview } from '../../components/DeckOverview'
 import { useEffectAsync } from '../../lib'
+import { screenColor } from '../../styles/colors'
 
 const Decks: NavComponent<NavProps> =
     (props) => {
@@ -39,10 +40,16 @@ const Decks: NavComponent<NavProps> =
         return (
             <View style={{flex:1}}>
                 <ScrollView
-                    style={viewStyle.main}>
+                    style={{flex: 1, backgroundColor: screenColor}}>
                     {
                         collections.map(
-                            (col) => <DeckOverview key={col.collectionId} collection={col} />
+                            (col) => (
+                                    <DeckOverview 
+                                        onPress={()=>props.navigation.navigate('CollectionDetail')}
+                                        key={col.collectionId}
+                                        collection={col}
+                                    />
+                                )
                         )
                     }
                 </ScrollView>

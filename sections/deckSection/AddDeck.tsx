@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { Text, View, TextInput, TouchableHighlight, KeyboardAvoidingView } from 'react-native'
+import { View, TextInput, KeyboardAvoidingView } from 'react-native'
 import { Inputs, Ribbon } from '../../styles/global'
 import {
     NavigationScreenProps as NavProps,
@@ -13,7 +13,6 @@ const AddDeck: NavComponent<NavProps> = (props) => {
     const [deckName, setDeckName] = useState("")
     const [collections, setCollections] = useContext(CollectionsContext)
     let emptyDeckName = deckName.length == 0
-    let CreateButtonProps = setCreateButtonProps()
     let CancelButtonProps = {
         style: Ribbon.CancelButton,
         onPress: () => props.navigation.goBack()
@@ -41,21 +40,21 @@ const AddDeck: NavComponent<NavProps> = (props) => {
                     },
                     {
                         text: "Create",
-                        buttonProps: CreateButtonProps
+                        buttonProps: createButtonProps()
                     }
                 ]}
             />
         </KeyboardAvoidingView>
     )
-    function setCreateButtonProps () {
-        let CreateButtonProps
+    function createButtonProps () {
+        let buttonProps
         if ( emptyDeckName ) {
-            CreateButtonProps = {
+            buttonProps = {
                 style: Ribbon.DisabledButton,
                 underlayColor: Ribbon.DisabledButton.backgroundColor
             }
         } else {
-            CreateButtonProps = {
+            buttonProps = {
                 style:Ribbon.ActionButton,
                 onPress:() => {
                     setCollections([...collections, buildCollection({deckName})])
@@ -63,7 +62,7 @@ const AddDeck: NavComponent<NavProps> = (props) => {
                 }
             }
         }
-        return CreateButtonProps
+        return buttonProps
     }
 }
 AddDeck.navigationOptions = {

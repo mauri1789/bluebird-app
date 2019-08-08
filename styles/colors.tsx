@@ -1,3 +1,4 @@
 const mainAppColor = 'teal'
 const inactiveColor = 'gray'
-export { mainAppColor, inactiveColor}
+const screenColor = 'rgb(240,240,240)'
+export { mainAppColor, inactiveColor, screenColor }
