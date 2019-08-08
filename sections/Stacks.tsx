@@ -8,9 +8,9 @@ import { HeaderStyle } from './../styles/global'
 import { CollectionDetail } from './shared/CollectionDetail'
 
 export const DeckSection = createStackNavigator({
-    DeckScreen: Decks,
-    AddDeck: AddDeck,
-    CollectionDetail: CollectionDetail
+    Decks,
+    AddDeck,
+    CollectionDetail
 },{
     defaultNavigationOptions: {
         title: 'My Decks',

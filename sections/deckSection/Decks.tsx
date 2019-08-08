@@ -10,7 +10,7 @@ import { CollectionsContext } from './../../context'
 import { getCollections, loadFromStorage, saveInStorage } from '../../services/collectionService'
 import { DeckOverview } from '../../components/DeckOverview'
 import { useEffectAsync } from '../../lib'
-import { screenColor } from '../../styles/colors'
+import { Screen } from '../../styles/global'
 
 const Decks: NavComponent<NavProps> =
     (props) => {
@@ -39,13 +39,17 @@ const Decks: NavComponent<NavProps> =
         }, [])
         return (
             <View style={{flex:1}}>
-                <ScrollView
-                    style={{flex: 1, backgroundColor: screenColor}}>
+                <ScrollView style={ Screen.main }>
                     {
                         collections.map(
                             (col) => (
                                     <DeckOverview 
-                                        onPress={()=>props.navigation.navigate('CollectionDetail')}
+                                        onPress={()=>props.navigation.navigate(
+                                            'CollectionDetail',
+                                            {
+                                                collection: col.name
+                                            }
+                                        )}
                                         key={col.collectionId}
                                         collection={col}
                                     />

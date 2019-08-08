@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
+import { Screen } from '../../styles/global'
 
 import {
     NavigationScreenProps as NavProps,
@@ -8,14 +9,14 @@ import {
 
 const CollectionDetail: NavComponent<NavProps> = (props) => {
     return (
-        <View>
+        <ScrollView style={ Screen.main }>
             <Text>Hello world</Text>
-        </View>
+        </ScrollView>
     )
 }
 
-CollectionDetail.navigationOptions = {
-    title: 'Cards'
-}
+CollectionDetail.navigationOptions = ({navigation}) => ({
+    title: navigation.state.params.collection
+})
 
 export { CollectionDetail }

@@ -1,5 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { mainAppColor } from './colors'
+import { mainAppColor, screenColor } from './colors'
+
+export const Screen = StyleSheet.create ({
+    main: { flex: 1, backgroundColor: screenColor }
+})
 
 export const EmptySectionStyle = StyleSheet.create({
     container: {
