@@ -2,7 +2,15 @@ import { StyleSheet } from 'react-native'
 import { mainAppColor, screenColor } from './colors'
 
 export const Screen = StyleSheet.create ({
-    main: { flex: 1, backgroundColor: screenColor }
+    main: {
+        flex: 1,
+        backgroundColor: screenColor
+    },
+    floating: {
+        width: "95%",
+        backgroundColor: "white",
+        padding: 10
+    }
 })
 
 export const EmptySectionStyle = StyleSheet.create({

@@ -47,7 +47,7 @@ const Decks: NavComponent<NavProps> =
                                         onPress={()=>props.navigation.navigate(
                                             'CollectionDetail',
                                             {
-                                                collection: col.name
+                                                collection: col
                                             }
                                         )}
                                         key={col.collectionId}
